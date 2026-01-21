@@ -33,21 +33,16 @@ public class CardTrick {
             System.out.println(c.getValue() + " " + c.getSuit());
         }
     
-        //insert code to ask the user for Card value and suit, create their card
-        Scanner sc = new Scanner(System.in);
-        Card userCard = new Card();
-        
-        System.out.print("Enter a card value (1-13): ");
-        userCard.setValue(sc.nextInt());
-        
-        System.out.print("Enter a suit (0-3 where 0=Hearts, 1=Diamonds, 2=Clubs, 3=Spades): ");
-        userCard.setSuit(Card.SUITS[sc.nextInt()]);
+        // add one luckcard hard code 2,clubs
+        Card luckyCard = new Card();
+        luckyCard.setValue(2);
+        luckyCard.setSuit(Card.SUITS[2]);
         
         // and search magicHand here
         boolean isMatching = false;
         int i = 0;
         while(isMatching == false && i<magicHand.length) {
-            if(magicHand[i].getValue() == userCard.getValue() && magicHand[i].getSuit() == userCard.getSuit()) {
+            if(magicHand[i].getValue() == luckyCard.getValue() && magicHand[i].getSuit() == luckyCard.getSuit()) {
                 isMatching = true;
             }
             i++;
@@ -59,7 +54,8 @@ public class CardTrick {
         else {
             System.out.println("Sorry, your card is not in the magic hand.");
         }
-        // add one luckcard hard code 2,clubs
+        
+        
     }
     
 }
